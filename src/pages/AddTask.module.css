@@ -1,0 +1,15 @@
+.header {
+  width: 1684;
+  height: 41px;
+  margin-left: 100px;
+  margin-top: 40px;
+  align-self: flex-start;
+  font-size: 34px;
+  color: #212529;
+}
+.taskForm {
+  width: 1684px;
+  height: 804px;
+  margin-left: 100px;
+  margin-top: 40px;
+}

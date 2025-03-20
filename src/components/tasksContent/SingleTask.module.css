@@ -1,0 +1,130 @@
+.taskCard {
+  width: 381px;
+  border: 1px solid; /* Border color set dynamically via inline style */
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px;
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.taskCardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.taskCardHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.priorityName {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 86px;
+  height: 26px;
+  border-radius: 5px;
+  padding: 4px;
+  font-family: "FiraGO", sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.priorityIcon {
+  width: 16px;
+  height: 18px;
+  object-fit: cover;
+}
+
+.departmentName {
+  width: 95px;
+  height: 24px;
+  border-radius: 15px;
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "FiraGO", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.taskCardDate {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+/* Content wrapper for task name and description */
+.taskCardContent {
+  width: 320px;
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 28px 10.5px;
+}
+
+.taskCardName {
+  width: 320px;
+  height: 18px;
+  text-wrap: nowrap;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #212529;
+}
+
+.taskCardDescription {
+  width: 320px;
+  height: 50px;
+  font-family: "FiraGO", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #343a40;
+  text-overflow: ellipsis;
+}
+
+.taskCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.taskCardAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ccc;
+}
+
+.taskCardCommentCount {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.taskCardCommentIcon {
+  width: 22px;
+  height: 22px;
+  margin-right: 4px;
+}

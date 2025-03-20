@@ -1,0 +1,111 @@
+.board {
+  display: flex;
+  width: 100%;
+  max-width: 1700px;
+  justify-content: space-evenly;
+  gap: 52px;
+  margin-top: 24px;
+  margin-left: 83px;
+}
+
+.column {
+  background-color: #ffffff;
+  border-radius: 10px;
+  min-width: 381px;
+  min-height: 500px;
+  padding: 16px;
+}
+
+.header {
+  padding: 10px;
+  width: 381px;
+  height: 54px;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.columnTitle {
+  min-width: 108px;
+  max-height: 24px;
+  font-size: 20px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.taskList {
+  margin-top: 8px;
+}
+
+.taskCard {
+  width: 381px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 30px; 
+  background-color: #fff;
+}
+
+
+.taskCardHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.taskCardHeaderLeft {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  color: #ff9800; 
+}
+
+.taskCardDate {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.taskCardName {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.taskCardDescription {
+  font-size: 14px;
+  color: #6c757d;
+  margin-bottom: 10px;
+}
+
+.taskCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.taskCardAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+  background-color: #ccc;
+}
+
+.taskCardFooterLeft {
+  display: flex;
+  align-items: center;
+}
+
+.taskCardCommentCount {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #333;
+}
+
+.taskCardCommentIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}

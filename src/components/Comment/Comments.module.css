@@ -1,0 +1,97 @@
+.commentSection {
+  width: 741px;
+  max-height: 975px;
+  border-radius: 10px;
+  border: 0.3px solid #ddd2ff;
+  background-color: #f8f3fea6;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.commentInputContainer {
+  background-color: #ffffff;
+  border: 0.3px solid #adb5bd;
+  position: relative;
+  width: 651px;
+  height: 135px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+}
+
+.textarea {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  font-family: "FiraGO", sans-serif;
+  background: transparent;
+}
+
+.submitButton {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  width: 120px;
+  height: 35px;
+  border-radius: 20px;
+  background-color: #8338ec;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "FiraGO", sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.commentHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.commentHeader h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.commentCount {
+  width: 30px;
+  height: 22px;
+  border-radius: 30px;
+  background-color: #8338ec;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.commentList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 700px; 
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px; 
+}
+
+.commentList::-webkit-scrollbar {
+  width: 4px;
+}
+
+.commentList::-webkit-scrollbar-thumb {
+  background-color: #8338ec;
+  border-radius: 10px;
+}
+
+.commentList::-webkit-scrollbar-track {
+  background: #f0e7ff;
+}

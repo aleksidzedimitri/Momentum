@@ -1,0 +1,54 @@
+.customSelectContainer {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.selectLabel {
+  color: #343a40; 
+  font-size: 14px;
+}
+
+.itemRow {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  font-size: 14px;
+}
+
+.itemAvatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-right: 8px;
+  object-fit: cover;
+}
+
+.singleValueRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 14px;
+}
+
+
+.customSelect__control {
+  font-size: 14px;
+}
+
+.customSelect__menu {
+  font-size: 14px;
+}
+
+.customSelect__option {
+  cursor: pointer;
+}
+
+.customSelect__option--is-focused {
+  background-color: #f1f1f1;
+}
+
+.customSelect__option--is-selected {
+  background-color: #ddd2ff;
+}
