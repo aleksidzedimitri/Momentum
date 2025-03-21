@@ -128,7 +128,6 @@ export default function TaskDetail() {
     <NavigationLayout>
       <div className={styles.mainContainer}>
         <div className={styles.detailsPage}>
-
           <div className={styles.taskHeader}>
             <div className={styles.taskHeaderContent}>
               <div className={styles.taskHeaderTop}>
@@ -159,7 +158,6 @@ export default function TaskDetail() {
             <p className={styles.taskDescription}>{task.description}</p>
           </div>
 
-
           <div className={styles.detailsWrapper}>
             <h2 className={styles.detailsHeader}>დავალების დეტალები</h2>
             <div className={styles.details}>
@@ -172,16 +170,17 @@ export default function TaskDetail() {
                   />
                   სტატუსი
                 </span>
-                <CustomSelect
-                  label=""
-                  options={statusOptions}
-                  value={status}
-                  onChange={updateTaskStatus}
-                  isSearchable={false}
-                  width="259px"
-                  height="45px"
-                  font-size="14px"
-                />
+                <div className={styles.selectWrapper}>
+                  <CustomSelect
+                    label=""
+                    options={statusOptions}
+                    value={status}
+                    onChange={updateTaskStatus}
+                    isSearchable={false}
+                    width="259px"
+                    height="45px"
+                  />
+                </div>
               </div>
               <div className={styles.spanContainer}>
                 <span className={styles.span}>
@@ -228,7 +227,7 @@ export default function TaskDetail() {
           </div>
         </div>
         <div className={styles.commentSection}>
-        <Comments taskId={task.id} />
+          <Comments taskId={task.id} />
         </div>
       </div>
     </NavigationLayout>

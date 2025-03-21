@@ -169,6 +169,11 @@ export default function TaskFilter() {
                     checked={selectedEmployee === employee.id}
                     onChange={() => toggleEmployeeSelection(employee.id)}
                   />
+                  <img
+                    src={employee.avatar}
+                    alt="avatar"
+                    className={styles.employeeAvatar}
+                  />{" "}
                   {employee.name} {employee.surname}
                 </label>
               ))}
@@ -176,7 +181,6 @@ export default function TaskFilter() {
           )}
         </div>
       </div>
-
 
       <div className={styles.selectedFilters}>
         {selectedDepartments.map((dep) => (

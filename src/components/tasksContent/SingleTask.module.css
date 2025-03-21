@@ -1,6 +1,6 @@
 .taskCard {
   width: 381px;
-  border: 1px solid; /* Border color set dynamically via inline style */
+  border: 1px solid; 
   padding: 20px;
   border-radius: 15px;
   margin-top: 30px;
@@ -33,7 +33,7 @@
   border-radius: 5px;
   padding: 4px;
   font-family: "FiraGO", sans-serif;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 12px;
   line-height: 100%;
   letter-spacing: 0;
@@ -46,7 +46,7 @@
 }
 
 .departmentName {
-  width: 95px;
+  width: 105px;
   height: 24px;
   border-radius: 15px;
   padding: 5px 9px;
@@ -66,7 +66,6 @@
   color: #6c757d;
 }
 
-/* Content wrapper for task name and description */
 .taskCardContent {
   width: 320px;
   height: 64px;
@@ -82,7 +81,7 @@
   width: 320px;
   height: 18px;
   text-wrap: nowrap;
-  font-weight: bold;
+  font-weight: 600;
   font-size: 15px;
   line-height: 100%;
   letter-spacing: 0;

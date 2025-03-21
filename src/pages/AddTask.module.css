@@ -6,6 +6,8 @@
   align-self: flex-start;
   font-size: 34px;
   color: #212529;
+  font-family: "FiraGo", serif;
+  font-weight: 600;
 }
 .taskForm {
   width: 1684px;

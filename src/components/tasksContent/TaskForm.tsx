@@ -201,7 +201,6 @@ export default function TaskForm() {
       const newTask = await response.json();
       console.log("New task created:", newTask);
 
-      // ✅ Immediately refresh tasks so the new one appears in the correct column
       fetchTasks();
       const clearLocalStorage = () => {
         localStorage.removeItem("task_name");
@@ -213,7 +212,6 @@ export default function TaskForm() {
         localStorage.removeItem("task_dueDate");
       };
 
-      // Reset form
       setName("");
       setDescription("");
       setPriority(null);
@@ -325,6 +323,7 @@ export default function TaskForm() {
               onChange={(val) => setStatus(val)}
               isSearchable={false}
               width="260px"
+                
             />
           </div>
         </div>
@@ -340,7 +339,7 @@ export default function TaskForm() {
             onChange={(val) => setDepartment(val ? Number(val) : null)}
             isSearchable={false}
             width="550px"
-            height="108px"
+            height="45px"
           />
         </div>
 
@@ -359,7 +358,7 @@ export default function TaskForm() {
             onChange={(val) => setEmployee(val)}
             isSearchable={false}
             width="550px"
-            height="108px"
+            height="45px"
           />
         </div>
 

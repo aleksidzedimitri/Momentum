@@ -1,7 +1,8 @@
 import { useEffect, useContext, useState } from "react";
 import styles from "./Modal.module.css";
 import { StoreContext } from "../../store/ContextProvider";
-import { FaTrashAlt } from "react-icons/fa"; 
+import { FaTrashAlt } from "react-icons/fa";
+import CustomSelect, { CustomSelectItem } from "../Dropdown/CustomSelect";
 
 const BASE_URL = "https://momentum.redberryinternship.ge/api";
 const BEARER_TOKEN = "9e6bd89f-e7c3-4357-a63d-38a1d49630b4";
@@ -82,7 +83,6 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
 
   if (!isOpen) return null;
 
-  // Handle form submission (POST request)
   const handleSubmit = async (e: React.SyntheticEvent<EventTarget>) => {
     e.preventDefault();
     if (!isFormValid) return;
@@ -110,9 +110,6 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
         throw new Error("Failed to create employee");
       }
 
-
-
-      // Fetch updated employee list
       fetchEmployees();
 
       onClose();
@@ -126,7 +123,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
       setLoading(false);
     }
   };
-
+  const departmentOptions: CustomSelectItem[] = departments.map(
+    (department) => ({
+      value: department.id,
+      label: department.name,
+    })
+  );
   return (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
@@ -205,21 +207,15 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
 
           {/* Department Select */}
           <div className={styles.department}>
-            <label htmlFor="department">დეპარტამენტი*</label>
-            <select
-              name="department"
-              className={styles.select}
-              value={selectedDepartment}
-              onChange={(e) => setSelectedDepartment(e.target.value)}
-              required
-            >
-              <option value=""></option>
-              {departments.map((department) => (
-                <option key={department.id} value={department.id}>
-                  {department.name}
-                </option>
-              ))}
-            </select>
+            <CustomSelect
+              label="დეპარტამენტი*"
+              options={departmentOptions}
+              value={selectedDepartment ? Number(selectedDepartment) : null}
+              onChange={(val) => setSelectedDepartment(val?.toString() ?? "")}
+              isSearchable={false}
+              width="384px"
+              height="42x"
+            />
           </div>
         </div>
         {error && <p className={styles.errorMessage}>{error}</p>}

@@ -6,8 +6,11 @@
 }
 
 .selectLabel {
-  color: #343a40; 
+  margin-bottom: 5px;
+  color: #343A40; 
   font-size: 14px;
+  font-family: "FiraGO", sans-serif;
+  line-height: 100%;
 }
 
 .itemRow {

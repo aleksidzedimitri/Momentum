@@ -7,6 +7,7 @@ import { BrowserRouter } from "react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { OpenAPI as OpenAPIConfig } from "../openapi/requests/core/OpenAPI";
 
+
 OpenAPIConfig.BASE = "https://momentum.redberryinternship.ge/api";
 
 const queryClient = new QueryClient({ defaultOptions: {} });

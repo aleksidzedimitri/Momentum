@@ -87,18 +87,17 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
         isSearchable={isSearchable}
         classNamePrefix="customSelect"
         styles={{
-          control: (base) => ({
+          control: (base, state) => ({
             ...base,
             width,
             height: "45px",
             minHeight: "45px",
-            border: "1px solid #dee2e6",
             borderRadius: "4px",
+            border: state.isFocused ? "1px solid #777777" : "1px solid #dee2e6",
             boxShadow: "none",
             display: "flex",
             alignItems: "center",
             backgroundColor: "#fff",
-            borderColor: "#dee2e6",
           }),
           valueContainer: (base) => ({
             ...base,

@@ -1,4 +1,3 @@
-/* Container for the entire form */
 .formContainer {
   width: 1684px;
   height: 804px;
@@ -7,39 +6,42 @@
   border-radius: 4px;
   display: flex;
   justify-content: space-around;
-  align-items: flex-start; /* Align both columns at the top */
+  align-items: flex-start;
   box-sizing: border-box;
 }
 
-/* Left side container */
 .leftSide {
   margin: 65px;
   width: 550px;
   display: flex;
   flex-direction: column;
-  gap: 55px;
+  gap: 60px;
 }
 
-/* Priority & Status side by side */
 .flexRow {
   display: flex;
-  width: 550X;
+  width: 550x;
   justify-content: space-between;
   gap: 32px;
 }
+.input:focus,
+.dateInput:focus,
+.select:focus,
+.textarea:focus {
+  border: 1px solid #777777;
+  outline: none;
+}
 
-/* Right side container */
 .rightSide {
   margin-top: 60px;
   width: 550px;
   margin-right: 360px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 113px;
   justify-content: space-evenly;
 }
 
-/* Validation text styles */
 .valid {
   margin-top: 3px;
   color: #08a508;
@@ -53,15 +55,17 @@
   line-height: 100%;
 }
 
-/* For each label + input grouping */
 .formGroup {
+  color: #343a40;
+  font-weight: 500;
   display: flex;
   flex-direction: column;
 }
-.labels{
-  margin-bottom: 7px;
+.labels {
+  color: #343a40;
+  font-weight: 500;
+  margin-bottom: 5px;
 }
-/* Normal text input => EXACT 550×45, border #DEE2E6 */
 .input {
   width: 550px;
   height: 45px;
@@ -71,7 +75,6 @@
   box-sizing: border-box;
 }
 
-/* Textarea => EXACT 550×45 or remove height to allow multiline */
 .textarea {
   max-width: 550px;
   min-width: 550px;
@@ -83,7 +86,6 @@
   box-sizing: border-box;
 }
 
-/* All native selects => EXACT 550×45, border #DEE2E6 */
 .select {
   width: 550px;
   height: 45px;
@@ -93,7 +95,6 @@
   box-sizing: border-box;
 }
 
-/* Priority/Status select side by side => 259×45 each */
 .selectGroup {
   width: 259px;
   height: 45px;
@@ -103,7 +104,6 @@
   box-sizing: border-box;
 }
 
-/* The date input => EXACT 318×45, border #DEE2E6 */
 .dateInput {
   width: 318px;
   height: 45px;
@@ -113,19 +113,21 @@
   box-sizing: border-box;
 }
 
-/* For the button */
 .submitButton {
+  font-family: "FiraGo", serif;
   padding: 10px 20px;
-  margin: 5px;
-  width: 208px; /* optional */
+  width: 208px;
   height: 45px;
-  margin-top: 145px;
-  background-color: #5b34da;
+  margin-top: 65px;
+  background-color: #8338ec;
   color: #ffffff;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   align-self: flex-end;
+  font-size: 18px;
+  font-weight: 400;
+  text-wrap: nowrap;
 }
 .submitButton:hover {
   background-color: #7a57e3;

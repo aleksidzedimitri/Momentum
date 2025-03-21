@@ -1,4 +1,6 @@
 .commentSection {
+  font-family: "FiraGO", sans-serif;
+
   width: 741px;
   max-height: 975px;
   border-radius: 10px;
@@ -53,6 +55,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  font-weight: 500;
 }
 
 .commentHeader h3 {
@@ -77,10 +80,10 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-height: 700px; 
+  max-height: 700px;
   overflow-y: auto;
   overflow-x: hidden;
-  padding-right: 10px; 
+  padding-right: 10px;
 }
 
 .commentList::-webkit-scrollbar {
