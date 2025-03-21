@@ -136,6 +136,10 @@ export default function TaskForm() {
         data = await resp.json();
         setPriorities(data);
 
+        if (getLocalData("task_priority", null) === null && data.length > 0) {
+          setPriority(data[0].id);
+        }
+
         // 3) Statuses
         resp = await fetch(`${BASE_URL}/statuses`, {
           headers: {
@@ -146,6 +150,10 @@ export default function TaskForm() {
         if (!resp.ok) throw new Error("Failed to fetch statuses");
         data = await resp.json();
         setStatuses(data);
+
+        if (getLocalData("task_status", null) === null && data.length > 0) {
+          setStatus(data[0].id);
+        }
 
         // 4) Employees (fetch all, then filter client-side)
         resp = await fetch(`${BASE_URL}/employees`, {
