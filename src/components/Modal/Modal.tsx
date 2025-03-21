@@ -69,7 +69,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     imageFile !== null &&
     !imageError;
 
-    // Option for modal closing
+  // Option for modal closing
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -96,7 +96,6 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     formData.append("surname", surname);
     formData.append("avatar", imageFile as Blob);
     formData.append("department_id", selectedDepartment);
-
 
     // Post request to employees
     try {
@@ -148,7 +147,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               <input
                 type="text"
                 name="name"
-                className={styles.input}
+                className={styles.fullnameInput}
                 value={name}
                 onChange={(e) => {
                   setName(e.target.value);
@@ -157,10 +156,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 required
               />
               <p className={nameValid ? styles.valid : styles.invalid}>
-                მინიმუმ 2 სიმბოლო
+                <img src="/assets/images/check.svg" alt="check" /> მინიმუმ 2
+                სიმბოლო
               </p>
               <p className={nameValid ? styles.valid : styles.invalid}>
-                მაქსიმუმ 255 სიმბოლო
+                <img src="/assets/images/check.svg" alt="check" /> მაქსიმუმ 255
+                სიმბოლო
               </p>
             </div>
             <div>
@@ -168,7 +169,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               <input
                 type="text"
                 name="surname"
-                className={styles.input}
+                className={styles.fullnameInput}
                 value={surname}
                 onChange={(e) => {
                   setSurname(e.target.value);
@@ -177,10 +178,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 required
               />
               <p className={surnameValid ? styles.valid : styles.invalid}>
-                მინიმუმ 2 სიმბოლო
+                <img src="/assets/images/check.svg" alt="check" /> მინიმუმ 2
+                სიმბოლო
               </p>
               <p className={surnameValid ? styles.valid : styles.invalid}>
-                მაქსიმუმ 255 სიმბოლო
+                <img src="/assets/images/check.svg" alt="check" /> მაქსიმუმ 255
+                სიმბოლო
               </p>
             </div>
           </div>
@@ -197,6 +200,14 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
               </div>
             ) : (
               <label className={styles.imageUpload}>
+                <div className={styles.placeholder}>
+                  <img
+                    src="/assets/images/imageUpload.svg"
+                    alt="Upload"
+                    className={styles.uploadIcon}
+                  />
+                  <p>ატვირთეთ ფაილი</p>
+                </div>
                 <input
                   type="file"
                   accept="image/*"

@@ -30,6 +30,7 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  max-width: 813px;
   width: 100%;
   justify-content: space-evenly;
 }
@@ -45,7 +46,7 @@ h2 {
 .fullName {
   display: flex;
   gap: 20px;
-  width: 100%;
+  max-width: 813px;
 }
 
 .fullName > div {
@@ -60,6 +61,16 @@ label {
   color: #333;
 }
 
+.fullnameInput {
+  width: 385px;
+  height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
 .input,
 .select {
   width: 100%;
@@ -71,7 +82,7 @@ label {
   margin-top: 10px;
 }
 
-.input:focus,
+.fullnameInput:focus,
 .select:focus {
   border: 1px solid #777777;
   outline: none;
@@ -82,10 +93,45 @@ label {
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  max-width: 813px;
+  height: 120px;
 }
 
+/* Center the icon and text in the upload area */
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 80%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: #6c757d;
+}
+
+.uploadIcon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Hidden file input styling*/
+.imageInput {
+  width: 100%;
+  height: 120px;
+  border: 1px dashed #ced4da;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+  position: relative;
+}
 /* Image preview area for uploaded profile */
 .imagePreview {
+  max-width: 813px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -99,24 +145,10 @@ label {
 }
 
 .imagePreview img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 88px;
+  max-height: 88px;
   object-fit: contain;
-}
-
-/* Hidden file input styling (text-indent hides default text) */
-.imageInput {
-  width: 100%;
-  height: 120px;
-  border: 1px dashed #ced4da;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  text-indent: -9999px;
-  overflow: hidden;
-  position: relative;
+  border-radius: 50%;
 }
 
 .deleteButton {
@@ -146,6 +178,7 @@ label {
 }
 
 .department {
+  margin-top: 30px;
   width: 50%;
 }
 
@@ -231,6 +264,7 @@ label {
   line-height: 100%;
   margin-left: 5px;
   margin-top: 3px;
+  filter: invert(40%) drop-shadow(0 0 0 #08a508);
 }
 
 .invalid {
@@ -244,6 +278,7 @@ label {
   font-weight: 400;
   font-size: 10px;
   color: #6c757d;
+  filter: invert(40%) drop-shadow(0 0 0 #6c757d);
 }
 
 /* Animation for fading in overlay */
