@@ -150,8 +150,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 className={styles.fullnameInput}
                 value={name}
                 onChange={(e) => {
-                  setName(e.target.value);
-                  validateName(e.target.value);
+                  const filtered = e.target.value.replace(
+                    /[^a-zA-Z\u10A0-\u10FF]/g,
+                    ""
+                  );
+                  setName(filtered);
+                  validateName(filtered);
                 }}
                 required
               />
@@ -172,8 +176,12 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
                 className={styles.fullnameInput}
                 value={surname}
                 onChange={(e) => {
-                  setSurname(e.target.value);
-                  validateSurname(e.target.value);
+                  const filtered = e.target.value.replace(
+                    /[^a-zA-Z\u10A0-\u10FF]/g,
+                    ""
+                  );
+                  setSurname(filtered);
+                  validateSurname(filtered);
                 }}
                 required
               />
