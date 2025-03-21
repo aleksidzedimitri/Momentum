@@ -17,6 +17,8 @@ interface CustomSelectProps
   isSearchable?: boolean;
   width?: string;
   height?: string;
+  prependOption?: CustomSelectItem;
+  openModal?: () => void;
 }
 
 const CustomSelect: React.FC<CustomSelectProps> = ({
@@ -27,11 +29,40 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   isSearchable = false,
   width = "550px",
   height = "260px",
+  prependOption,
+  openModal,
   ...props
 }) => {
+  const modifiedOptions = prependOption ? [prependOption, ...options] : options;
+
   // Custom option rendering for react-select
   const CustomOption = (props: OptionProps<CustomSelectItem, false>) => {
     const { data, innerRef, innerProps, isSelected, isFocused } = props;
+
+    if (data.value === -1) {
+      return (
+        <div
+          ref={innerRef}
+          {...innerProps}
+          className={styles.itemRow}
+          style={{
+            cursor: "pointer",
+            color: "#8338EC",
+            fontWeight: 500,
+            padding: "8px 12px",
+            gap: "10px",
+            width: "224px",
+            textWrap: "nowrap",
+          }}
+          onClick={() => {
+            openModal?.();
+          }}
+        >
+          <img src="/assets/images/plus.svg" alt="add-button" />
+          {data.label}
+        </div>
+      );
+    }
     return (
       <div
         ref={innerRef}
@@ -84,7 +115,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       <Select
         value={selectedOption}
         onChange={(opt) => onChange(opt ? opt.value : null)}
-        options={options}
+        options={modifiedOptions}
         components={{ Option: CustomOption, SingleValue: CustomSingleValue }}
         placeholder=""
         isSearchable={isSearchable}

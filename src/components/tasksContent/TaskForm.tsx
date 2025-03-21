@@ -3,6 +3,7 @@ import styles from "./TaskForm.module.css";
 import CustomSelect, { CustomSelectItem } from "../Dropdown/CustomSelect";
 import { useNavigate } from "react-router";
 import { StoreContext } from "../../store/ContextProvider";
+import Modal from "../Modal/Modal";
 
 const BASE_URL = "https://momentum.redberryinternship.ge/api";
 const BEARER_TOKEN = "9e6bd89f-e7c3-4357-a63d-38a1d49630b4";
@@ -84,6 +85,9 @@ export default function TaskForm() {
   const [statuses, setStatuses] = useState<Status[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
 
+  //Modal state
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Validation state for inputs
   const [nameValid, setNameValid] = useState(false);
   const [textareaValid, setTextareaValid] = useState(false);
@@ -162,7 +166,7 @@ export default function TaskForm() {
 
   // Validate name: must be 2–255 characters (Georgian/Latin letters)
   const validateName = (value: string) => {
-    const isValid = /^[\u10A0-\u10FFa-zA-Z]{2,255}$/.test(value);
+    const isValid = value.trim().length >= 3 && value.trim().length <= 255;
     setNameValid(isValid);
   };
 
@@ -356,6 +360,11 @@ export default function TaskForm() {
             isSearchable={false}
             width="550px"
             height="45px"
+            prependOption={{
+              value: -1,
+              label: "დაამატე თანამშრომელი",
+            }}
+            openModal={() => setIsModalOpen(true)}
           />
         </div>
 
@@ -377,6 +386,7 @@ export default function TaskForm() {
           დავალების შექმნა
         </button>
       </div>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </form>
   );
 }
