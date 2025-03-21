@@ -1,3 +1,4 @@
+/* Container for the custom select component */
 .customSelectContainer {
   font-size: 14px;
   display: flex;
@@ -7,12 +8,13 @@
 
 .selectLabel {
   margin-bottom: 5px;
-  color: #343A40; 
+  color: #343a40;
   font-size: 14px;
   font-family: "FiraGO", sans-serif;
   line-height: 100%;
 }
 
+/* Styling for each option row */
 .itemRow {
   display: flex;
   align-items: center;
@@ -28,6 +30,7 @@
   object-fit: cover;
 }
 
+/* Styling for the selected value display */
 .singleValueRow {
   display: flex;
   align-items: center;
@@ -35,7 +38,7 @@
   font-size: 14px;
 }
 
-
+/* react-select custom classes for control and menu */
 .customSelect__control {
   font-size: 14px;
 }
@@ -44,6 +47,7 @@
   font-size: 14px;
 }
 
+/* Option states */
 .customSelect__option {
   cursor: pointer;
 }

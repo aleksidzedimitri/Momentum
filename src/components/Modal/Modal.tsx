@@ -69,6 +69,7 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     imageFile !== null &&
     !imageError;
 
+    // Option for modal closing
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -96,6 +97,8 @@ export default function Modal({ isOpen, onClose }: ModalProps) {
     formData.append("avatar", imageFile as Blob);
     formData.append("department_id", selectedDepartment);
 
+
+    // Post request to employees
     try {
       const response = await fetch(`${BASE_URL}/employees`, {
         method: "POST",

@@ -1,6 +1,7 @@
+/* Card container for each task */
 .taskCard {
   width: 381px;
-  border: 1px solid; 
+  border: 1px solid; /* Border color is set inline via headerColor */
   padding: 20px;
   border-radius: 15px;
   margin-top: 30px;
@@ -10,6 +11,7 @@
   flex-direction: column;
 }
 
+/* Header section containing priority, department, and date */
 .taskCardHeader {
   display: flex;
   justify-content: space-between;
@@ -23,6 +25,7 @@
   font-size: 14px;
 }
 
+/* Priority label container with dynamic border */
 .priorityName {
   display: flex;
   align-items: center;
@@ -45,6 +48,7 @@
   object-fit: cover;
 }
 
+/* Department label styling with dynamic background */
 .departmentName {
   width: 105px;
   height: 24px;
@@ -66,6 +70,7 @@
   color: #6c757d;
 }
 
+/* Content section: task name and description */
 .taskCardContent {
   width: 320px;
   height: 64px;
@@ -100,6 +105,7 @@
   text-overflow: ellipsis;
 }
 
+/* Footer: displays avatar and comment count */
 .taskCardFooter {
   display: flex;
   align-items: center;

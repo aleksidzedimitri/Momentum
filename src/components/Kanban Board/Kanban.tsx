@@ -34,13 +34,14 @@ const TaskBoard: React.FC = () => {
   const [boardData, setBoardData] = useState<{ columns: Column[] }>({
     columns: [],
   });
-
   const { statuses, tasks, fetchTasks, filters } = useContext(StoreContext);
 
+  // Fetch tasks on component mount
   useEffect(() => {
-    fetchTasks(); 
+    fetchTasks();
   }, [fetchTasks]);
 
+  // Process tasks, filter, group by status, and update boardData
   useEffect(() => {
     if (!tasks.length) return;
 
@@ -53,19 +54,21 @@ const TaskBoard: React.FC = () => {
         (filters.employeeId === null || task.employee.id === filters.employeeId)
       );
     });
-
+    // Map through statuses to apply titles to columns
     const columns: Column[] = statuses.map((status) => ({
       id: String(status.id),
       title: statusToColumnTitle[status.name] || status.name,
       tasks: [],
     }));
 
+    // Sort columns based on default order
     columns.sort(
       (a, b) =>
         DEFAULT_COLUMN_ORDER.indexOf(a.title) -
         DEFAULT_COLUMN_ORDER.indexOf(b.title)
     );
 
+    // Assign each task to its corresponding column
     filteredTasks.forEach((task) => {
       const columnTitle =
         statusToColumnTitle[task.status.name] || task.status.name;

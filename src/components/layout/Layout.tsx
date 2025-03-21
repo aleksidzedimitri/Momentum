@@ -6,6 +6,8 @@ interface LayoutProps {
   children: React.ReactNode;
 }
 
+// For creating layour for different pages
+
 export default function NavigationLayout({ children }: LayoutProps) {
   return (
     <div className={styles.layout}>

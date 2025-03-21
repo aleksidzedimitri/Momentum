@@ -7,6 +7,7 @@ import { StoreContext } from "../../store/ContextProvider";
 const BASE_URL = "https://momentum.redberryinternship.ge/api";
 const BEARER_TOKEN = "9e6bd89f-e7c3-4357-a63d-38a1d49630b4";
 
+// Define interfaces for fetched data
 interface Priority {
   id: number;
   name: string;
@@ -34,15 +35,18 @@ interface Employee {
     name: string;
   };
 }
+
+// Utility to retrieve data from localStorage with a fallback value
 const getLocalData = <T,>(key: string, defaultValue: T): T => {
   const saved = localStorage.getItem(key);
   return saved ? (JSON.parse(saved) as T) : defaultValue;
 };
+
 export default function TaskForm() {
   const { fetchTasks } = useContext(StoreContext);
   const navigate = useNavigate();
-  // Local states
 
+  // Local states initialized with localStorage data if available
   const [name, setName] = useState<string>(getLocalData("task_name", ""));
   const [description, setDescription] = useState<string>(
     getLocalData("task_description", "")
@@ -62,6 +66,8 @@ export default function TaskForm() {
   const [dueDate, setDueDate] = useState<string>(
     getLocalData("task_dueDate", new Date().toISOString().split("T")[0])
   );
+
+  // Persist form data to localStorage whenever values change
   useEffect(() => {
     localStorage.setItem("task_name", JSON.stringify(name));
     localStorage.setItem("task_description", JSON.stringify(description));
@@ -72,18 +78,17 @@ export default function TaskForm() {
     localStorage.setItem("task_dueDate", JSON.stringify(dueDate));
   }, [name, description, priority, status, department, employee, dueDate]);
 
-  // data fetched from the server
+  // Data fetched from the server
   const [departments, setDepartments] = useState<Department[]>([]);
   const [priorities, setPriorities] = useState<Priority[]>([]);
   const [statuses, setStatuses] = useState<Status[]>([]);
   const [employees, setEmployees] = useState<Employee[]>([]);
 
-  // validation states
+  // Validation state for inputs
   const [nameValid, setNameValid] = useState(false);
   const [textareaValid, setTextareaValid] = useState(false);
 
-  // clearing 
-  // torage
+  // Function to clear stored form data from localStorage
   const clearLocalStorage = () => {
     localStorage.removeItem("task_name");
     localStorage.removeItem("task_description");
@@ -94,13 +99,14 @@ export default function TaskForm() {
     localStorage.removeItem("task_dueDate");
   };
 
+  // Clear localStorage when the component unmounts
   useEffect(() => {
     return () => {
       clearLocalStorage();
     };
   }, []);
 
-  // Fetch all data once on mount
+  // Fetch all necessary data (departments, priorities, statuses, employees) once on mount
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -154,7 +160,7 @@ export default function TaskForm() {
     fetchData();
   }, []);
 
-  // Validate name: 2–255 characters (Georgian/Latin letters)
+  // Validate name: must be 2–255 characters (Georgian/Latin letters)
   const validateName = (value: string) => {
     const isValid = /^[\u10A0-\u10FFa-zA-Z]{2,255}$/.test(value);
     setNameValid(isValid);
@@ -167,8 +173,7 @@ export default function TaskForm() {
     setTextareaValid(isValid);
   };
 
-  // Submit => POST /tasks
-
+  // Handle form submission to create a new task via POST /tasks
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const dueDateTime = `${dueDate}T00:00:00Z`;
@@ -202,16 +207,7 @@ export default function TaskForm() {
       console.log("New task created:", newTask);
 
       fetchTasks();
-      const clearLocalStorage = () => {
-        localStorage.removeItem("task_name");
-        localStorage.removeItem("task_description");
-        localStorage.removeItem("task_priority");
-        localStorage.removeItem("task_status");
-        localStorage.removeItem("task_department");
-        localStorage.removeItem("task_employee");
-        localStorage.removeItem("task_dueDate");
-      };
-
+      // Reset form fields and clear stored data
       setName("");
       setDescription("");
       setPriority(null);
@@ -226,6 +222,7 @@ export default function TaskForm() {
     }
   };
 
+  // Prepare options for CustomSelect components
   const priorityOptions: CustomSelectItem[] = priorities.map((p: Priority) => ({
     value: p.id,
     label: p.name,
@@ -245,6 +242,7 @@ export default function TaskForm() {
     })
   );
 
+  // Filter employees based on selected department
   const filteredEmployees: Employee[] = department
     ? employees.filter((emp) => emp.department.id === department)
     : [];
@@ -257,7 +255,7 @@ export default function TaskForm() {
 
   return (
     <form className={styles.formContainer} onSubmit={handleSubmit}>
-      {/* LEFT SIDE */}
+      {/* LEFT SIDE: Task title, description, priority & status */}
       <div className={styles.leftSide}>
         <div className={styles.formGroup}>
           <label htmlFor="name" className={styles.labels}>
@@ -323,13 +321,12 @@ export default function TaskForm() {
               onChange={(val) => setStatus(val)}
               isSearchable={false}
               width="260px"
-                
             />
           </div>
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* RIGHT SIDE: Department, employee, due date & submit */}
       <div className={styles.rightSide}>
         <div className={styles.formGroup}>
           <CustomSelect

@@ -1,6 +1,5 @@
 .commentSection {
   font-family: "FiraGO", sans-serif;
-
   width: 741px;
   max-height: 975px;
   border-radius: 10px;
@@ -13,6 +12,7 @@
   overflow: hidden;
 }
 
+/* Input container (relative positioning for the absolute submit button) */
 .commentInputContainer {
   background-color: #ffffff;
   border: 0.3px solid #adb5bd;
@@ -36,6 +36,7 @@
   background: transparent;
 }
 
+/* Submit button placed at bottom-right of the input container */
 .submitButton {
   position: absolute;
   right: 20px;
@@ -51,6 +52,7 @@
   cursor: pointer;
 }
 
+/* Header and count badge for comments */
 .commentHeader {
   display: flex;
   align-items: center;
@@ -76,6 +78,7 @@
   font-size: 14px;
 }
 
+/* Scrollable list container for comments */
 .commentList {
   display: flex;
   flex-direction: column;
@@ -86,6 +89,7 @@
   padding-right: 10px;
 }
 
+/* Custom scrollbar styling for .commentList */
 .commentList::-webkit-scrollbar {
   width: 4px;
 }

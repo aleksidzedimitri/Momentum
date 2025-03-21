@@ -20,6 +20,7 @@ const Comments: React.FC<{ taskId: number }> = ({ taskId }) => {
   const [newComment, setNewComment] = useState("");
   const [loading, setLoading] = useState(false);
 
+  // useEffect for fetching comments
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -29,22 +30,19 @@ const Comments: React.FC<{ taskId: number }> = ({ taskId }) => {
             Authorization: `Bearer ${BEARER_TOKEN}`,
           },
         });
-
         if (!response.ok) throw new Error("Failed to fetch comments");
-
         const data = await response.json();
         setComments(data);
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchComments();
   }, [taskId]);
 
+  // handle new comment submission
   const handleSubmit = async () => {
     if (newComment.trim() === "") return;
-
     setLoading(true);
     try {
       const response = await fetch(`${BASE_URL}/tasks/${taskId}/comments`, {
@@ -59,9 +57,7 @@ const Comments: React.FC<{ taskId: number }> = ({ taskId }) => {
           parent_id: null,
         }),
       });
-
       if (!response.ok) throw new Error("Failed to post comment");
-
       const newCommentData: Comment = await response.json();
       setComments((prev) => [newCommentData, ...prev]);
       setNewComment("");
@@ -74,6 +70,7 @@ const Comments: React.FC<{ taskId: number }> = ({ taskId }) => {
 
   return (
     <div className={styles.commentSection}>
+      {/* comment input */}
       <div className={styles.commentInputContainer}>
         <textarea
           className={styles.textarea}
@@ -90,11 +87,13 @@ const Comments: React.FC<{ taskId: number }> = ({ taskId }) => {
         </button>
       </div>
 
+      {/* comment header */}
       <div className={styles.commentHeader}>
         <h3>კომენტარები</h3>
         <span className={styles.commentCount}>{comments.length}</span>
       </div>
 
+      {/* comment list */}
       <div className={styles.commentList}>
         {comments.map((comment) => (
           <SingleComment key={comment.id} comment={comment} taskId={taskId} />

@@ -18,16 +18,16 @@ interface CommentProps {
 }
 
 const SingleComment: React.FC<CommentProps> = ({ comment, taskId }) => {
-  const [reply, setReply] = useState("");
-  const [showReplyInput, setShowReplyInput] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [reply, setReply] = useState(""); // reply text state
+  const [showReplyInput, setShowReplyInput] = useState(false); // toggle reply input
+  const [loading, setLoading] = useState(false); // loading state for reply submission
   const [subComments, setSubComments] = useState<CommentProps["comment"][]>(
     comment.sub_comments || []
   );
 
+  // Submit a reply to the API and update subComments
   const handleReplySubmit = async () => {
     if (reply.trim() === "") return;
-
     setLoading(true);
     try {
       const response = await fetch(`${BASE_URL}/tasks/${taskId}/comments`, {
@@ -42,9 +42,7 @@ const SingleComment: React.FC<CommentProps> = ({ comment, taskId }) => {
           parent_id: comment.id,
         }),
       });
-
       if (!response.ok) throw new Error("Failed to post reply");
-
       const newSubComment = await response.json();
       setSubComments((prev) => [...prev, newSubComment]);
       setReply("");

@@ -1,3 +1,4 @@
+/* Main container for the filter section */
 .filterMainContainer {
   display: flex;
   flex-direction: column;
@@ -6,6 +7,7 @@
   font-family: "FiraGO", sans-serif;
 }
 
+/* Container holding all filter select boxes */
 .filterContainer {
   display: flex;
   justify-content: space-between;
@@ -20,6 +22,8 @@
   background: white;
   position: relative;
 }
+
+/* Container for displaying active filter tags */
 .selectedFilters {
   display: flex;
   align-items: center;
@@ -30,6 +34,8 @@
   max-width: 100%;
   overflow: hidden;
 }
+
+/* Styling for individual filter tags */
 .filterTag {
   display: flex;
   border: 1px solid #dee2e6;
@@ -47,16 +53,20 @@
   text-align: center;
   color: #343a40;
 }
+
+/* Icon inside filter tag for removal */
 .filteredIcon {
   width: 14px;
   height: 14px;
 }
 
+/* Wrapper for each select dropdown */
 .selectWrapper {
   position: relative;
   width: 200px;
 }
 
+/* Custom select styling */
 .select {
   width: 100%;
   background: transparent;
@@ -74,10 +84,12 @@
   font-weight: 400;
 }
 
+/* Active state for select */
 .select.active {
   color: #8338ec;
 }
 
+/* Optional icon styling (if used) */
 .icon {
   font-size: 14px;
   margin-right: 5px;
@@ -87,6 +99,7 @@
   color: #8338ec;
 }
 
+/* Dropdown menu for filter options */
 .dropdown {
   margin-top: 21px;
   position: absolute;
@@ -106,11 +119,13 @@
   font-family: "FiraGO", sans-serif;
 }
 
+/* Content wrapper inside dropdown (if needed) */
 .dropdownContent {
   width: 100%;
   padding: 10px;
 }
 
+/* Styling for each option in the dropdown */
 .option {
   font-size: 16px;
   line-height: 100%;
@@ -124,10 +139,12 @@
   line-height: 100%;
 }
 
+/* Ensure checkbox has a pointer cursor */
 .option input {
   cursor: pointer;
 }
 
+/* (Optional) Apply button styling if used */
 .applyButton {
   width: 155px;
   height: 35px;
@@ -141,12 +158,16 @@
   cursor: pointer;
   align-self: flex-end;
 }
+
+/* Employee avatar in the filter dropdown */
 .employeeAvatar {
   width: 28px;
   height: 28px;
   border-radius: 50%;
   object-fit: contain;
 }
+
+/* Custom checkbox styling */
 .customCheckbox {
   appearance: none;
   -webkit-appearance: none;

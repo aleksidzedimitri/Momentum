@@ -29,6 +29,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
   height = "260px",
   ...props
 }) => {
+  // Custom option rendering for react-select
   const CustomOption = (props: OptionProps<CustomSelectItem, false>) => {
     const { data, innerRef, innerProps, isSelected, isFocused } = props;
     return (
@@ -51,6 +52,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     );
   };
 
+  // Custom rendering for the selected value
   const CustomSingleValue = (
     props: SingleValueProps<CustomSelectItem, false>
   ) => {
@@ -69,6 +71,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
     );
   };
 
+  // Find the currently selected option from the options list
   const selectedOption = options.find((opt) => opt.value === value) || null;
 
   return (

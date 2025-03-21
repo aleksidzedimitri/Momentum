@@ -13,6 +13,7 @@ export default function TaskFilter() {
   const [selectedEmployee, setSelectedEmployee] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
+  // Load saved filters from localStorage on mount
   useEffect(() => {
     const storedFilters = localStorage.getItem("taskFilters");
     if (storedFilters) {
@@ -23,6 +24,7 @@ export default function TaskFilter() {
     }
   }, []);
 
+  // Save filters to context and localStorage when selections change
   useEffect(() => {
     const filters = {
       departments: selectedDepartments,
@@ -33,6 +35,7 @@ export default function TaskFilter() {
     localStorage.setItem("taskFilters", JSON.stringify(filters)); // Save filters
   }, [selectedDepartments, selectedPriorities, selectedEmployee, setFilters]);
 
+  // Close active filter dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -46,6 +49,7 @@ export default function TaskFilter() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // Clear saved filters when component unmounts
   useEffect(() => {
     return () => {
       localStorage.removeItem("taskFilters");
@@ -182,6 +186,7 @@ export default function TaskFilter() {
         </div>
       </div>
 
+      {/* Display selected filter tags */}
       <div className={styles.selectedFilters}>
         {selectedDepartments.map((dep) => (
           <span key={dep} className={styles.filterTag}>

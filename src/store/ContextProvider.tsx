@@ -152,6 +152,7 @@ const StoreProvider = ({ children }: { children: React.ReactNode }) => {
       console.error("Error fetching employees:", error);
     }
   }, []);
+  
   // Fetch
   useEffect(() => {
     fetchStatuses();

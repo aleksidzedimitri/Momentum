@@ -41,7 +41,7 @@ interface TaskDetailData {
 }
 
 export default function TaskDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // Get task id from URL params
   const { statuses, fetchStatuses, fetchTasks } = useContext(StoreContext);
   const [status, setStatus] = useState<number | null>(null);
   const [task, setTask] = useState<TaskDetailData | null>(null);
@@ -52,10 +52,12 @@ export default function TaskDetail() {
   const BEARER_TOKEN = "9e6bd89f-e7c3-4357-a63d-38a1d49630b4";
   const BASE_URL = "https://momentum.redberryinternship.ge/api";
 
+  // Fetch statuses on mount
   useEffect(() => {
     fetchStatuses();
   }, [fetchStatuses]);
 
+  // Fetch task details based on id param
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -81,23 +83,28 @@ export default function TaskDetail() {
     fetchTask();
   }, [id]);
 
+  // Display loading, error, or "no task" messages as needed
   if (loading) return <div>Loading task details...</div>;
   if (error) return <div>Error: {error}</div>;
   if (!task) return <div>No task found</div>;
 
+  // Format department name using mapping or fallback
   const formatDepartmentName = (deptName?: string): string => {
     return departmentMapping[deptName || ""] || deptName || "Unknown";
   };
 
+  // Determine background colors based on mappings
   const deptBgColor = departmentColors[task.department?.name] || "#000";
   const priorityColor = priorityColors[task.priority.name] || "#000";
 
+  // Prepare status options for the CustomSelect component
   const statusOptions = statuses.map((s) => ({
     value: s.id,
     label: s.name,
     avatar: s.icon,
   }));
 
+  // Update task status via PUT request and refresh tasks
   const updateTaskStatus = async (newStatus: number | null) => {
     if (newStatus === null) return;
 

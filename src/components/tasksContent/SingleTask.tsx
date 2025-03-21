@@ -25,6 +25,7 @@ interface SingleTaskProps {
 }
 
 const formatDepartmentName = (deptName: string): string => {
+  // Use mapping if available, otherwise use the first word of the name
   return departmentMapping[deptName] || deptName.split(" ")[0];
 };
 
@@ -35,6 +36,7 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task, headerColor }) => {
     navigate(`/tasks/${task.id}`);
   };
 
+  // Determine colors based on mappings
   const deptBgColor = departmentColors[task.departmentName] || "#000";
   const priorityColor = priorityColors[task.priorityName] || "#000";
 
@@ -44,7 +46,7 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task, headerColor }) => {
       style={{ borderColor: headerColor }}
       onClick={handleClick}
     >
-      {/*priority , department label, and date */}
+      {/* Header: priority label, department label, and due date */}
       <div className={styles.taskCardHeader}>
         <div className={styles.taskCardHeaderLeft}>
           <div
@@ -72,18 +74,17 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task, headerColor }) => {
         </div>
       </div>
 
-      {/* Content wrapper: task name and description */}
+      {/* Content: task name and truncated description */}
       <div className={styles.taskCardContent}>
         <div className={styles.taskCardName}>{task.name}</div>
         <div className={styles.taskCardDescription}>
-          {" "}
           {task.description.length > 100
             ? `${task.description.substring(0, 100)}...`
             : task.description}
         </div>
       </div>
 
-      {/* Footer: avatar and comment count */}
+      {/* Footer: employee avatar and comment count */}
       <div className={styles.taskCardFooter}>
         <div className={styles.taskCardFooterLeft}>
           {task.avatar ? (
