@@ -24,7 +24,6 @@ a {
   line-height: 100%;
   letter-spacing: 0%;
   font-family: "FiraGO", sans-serif;
-
 }
 .buttons {
   display: flex;
@@ -41,7 +40,7 @@ a {
   padding: 10px 20px;
   gap: 10px;
   font-weight: 400;
-
+  cursor: pointer;
 }
 .addButton {
   max-width: 268px;
@@ -52,6 +51,7 @@ a {
   color: #ffffff;
   border: none;
   font-weight: 400;
+  cursor: pointer;
 }
 .addButton:hover {
   background-color: #b588f4;

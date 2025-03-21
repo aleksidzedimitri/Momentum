@@ -132,6 +132,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
             display: "flex",
             alignItems: "center",
             backgroundColor: "#fff",
+            cursor: 'pointer'
           }),
           valueContainer: (base) => ({
             ...base,
@@ -139,6 +140,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
             display: "flex",
             alignItems: "center",
             padding: "0 8px",
+            
           }),
           menu: (base) => ({
             ...base,
@@ -146,6 +148,8 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
             border: "1px solid #dee2e6",
             borderTop: "none",
             borderRadius: "0 0 4px 4px",
+            cursor: 'pointer'
+
           }),
         }}
       />
