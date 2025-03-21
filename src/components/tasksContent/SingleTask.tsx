@@ -78,9 +78,9 @@ const SingleTask: React.FC<SingleTaskProps> = ({ task, headerColor }) => {
       <div className={styles.taskCardContent}>
         <div className={styles.taskCardName}>{task.name}</div>
         <div className={styles.taskCardDescription}>
-          {task.description.length > 100
+          {task.description?.length > 100
             ? `${task.description.substring(0, 100)}...`
-            : task.description}
+            : task.description || ""}
         </div>
       </div>
 
