@@ -186,12 +186,13 @@
   border-radius: 5px;
   text-align: right;
   display: flex;
+  margin-top: 4px;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: flex-end;
   position: absolute;
   top: 0;
   left: 25%;
-  color: #474747;
+  color: #757575;
   font-family: "FiraGo", serif;
   line-height: 100%;
   letter-spacing: 0%;
